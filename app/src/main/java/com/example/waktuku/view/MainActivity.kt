@@ -1,5 +1,7 @@
 package com.example.waktuku.view
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,20 +19,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Sekarang aman untuk binding dan permission
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Pindah ke sini
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 100)
+        }
+
         loadFragment(ActivityFragment())
 
-        binding.navMenu.setOnItemSelectedListener {fragment ->
-            when(fragment.itemId){
+        binding.navMenu.setOnItemSelectedListener { fragment ->
+            when (fragment.itemId) {
                 R.id.avtivity -> loadFragment(ActivityFragment())
                 R.id.create -> loadFragment(CreateFragment())
             }
             true
         }
-
     }
+
 
     fun loadFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction()

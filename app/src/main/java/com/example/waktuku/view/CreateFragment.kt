@@ -12,8 +12,14 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.waktuku.data.model.ActivityModel
 import com.example.waktuku.databinding.FragmentCreateBinding
+import com.example.waktuku.utils.AlarmHelper
+import com.example.waktuku.viewmodel.ActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.io.File
 import java.util.*
 
@@ -23,6 +29,9 @@ class CreateFragment : Fragment() {
     private var _binding: FragmentCreateBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: ActivityViewModel by viewModels()
+
+    private var selectedActivity: ActivityModel ?= null
     private var selectedHour = -1
     private var selectedMinute = -1
     private var audioPath: String? = null
@@ -65,13 +74,50 @@ class CreateFragment : Fragment() {
         // Simpan data
         binding.btnSaveActivity.setOnClickListener {
             val activityName = binding.etActivityName.text.toString()
+
             if (activityName.isBlank() || selectedHour == -1 || audioPath == null) {
                 Toast.makeText(requireContext(), "Isi semua data dengan lengkap", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            Toast.makeText(requireContext(), "Aktivitas disimpan:\n$activityName - $selectedHour:$selectedMinute", Toast.LENGTH_LONG).show()
+            val time = String.format("%02d:%02d", selectedHour, selectedMinute)
+
+            lifecycleScope.launch {
+                if (selectedActivity == null) {
+                    // INSERT
+                    val activityNew = ActivityModel(
+                        activity = activityName,
+                        time = time,
+                        audio = audioPath!!
+                    )
+                    val newId = viewModel.insertActivityAndReturnId(activityNew)
+                    AlarmHelper.setAlarm(requireContext(), newId.toInt(), activityName, selectedHour, selectedMinute, audioPath)
+                    Toast.makeText(requireContext(), "Aktivitas ditambahkan", Toast.LENGTH_SHORT).show()
+                } else {
+                    // UPDATE
+                    val updatedActivity = selectedActivity!!.copy(
+                        activity = activityName,
+                        time = time,
+                        audio = audioPath!!
+                    )
+                    viewModel.updateActivity(updatedActivity)
+                    AlarmHelper.setAlarm(requireContext(), updatedActivity.id, activityName, selectedHour, selectedMinute, audioPath)
+                    Toast.makeText(requireContext(), "Aktivitas diperbarui", Toast.LENGTH_SHORT).show()
+                }
+
+                // Reset form setelah simpan
+                binding.etActivityName.text?.clear()
+                binding.etTime.setText("")
+                binding.tvRecordingStatus.text = "Belum ada rekaman"
+                audioPath = null
+                selectedHour = -1
+                selectedMinute = -1
+                selectedActivity = null
+            }
+
+
         }
+
     }
 
     private fun checkAudioPermission(): Boolean {

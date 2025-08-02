@@ -11,7 +11,7 @@ import com.example.waktuku.data.model.ActivityModel
 @Dao
 interface ActivityDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(activity: ActivityModel)
+    suspend fun insert(activity: ActivityModel): Long
 
     @Update
     suspend fun update(activity: ActivityModel)
