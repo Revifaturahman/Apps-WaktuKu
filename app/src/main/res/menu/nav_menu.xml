@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/avtivity" android:icon="@drawable/ic_activity" android:title="Aktivitas"/>
+    <item android:id="@+id/create" android:icon="@drawable/ic_pencil" android:title="Tambah"/>
+</menu>
