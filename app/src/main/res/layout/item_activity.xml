@@ -11,9 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="15dp"
-        android:background="@color/green1"
+        android:padding="20dp"
+        android:background="@color/white"
         android:gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginEnd="10dp">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:src="@drawable/ic_activity"/>
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -31,8 +44,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Aktivitas"
-                    android:textColor="@color/coklat"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <TextView
@@ -40,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="12:00"
-                    android:textColor="@color/coklat"
+                    android:textColor="@color/black"
                     android:textAppearance="?attr/textAppearanceBody2" />
             </LinearLayout>
 
