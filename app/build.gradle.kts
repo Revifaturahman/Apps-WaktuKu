@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.waktuku"
+    namespace = "com.revifaturahman.waktuku"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.waktuku"
+        applicationId = "com.revifaturahman.waktuku"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

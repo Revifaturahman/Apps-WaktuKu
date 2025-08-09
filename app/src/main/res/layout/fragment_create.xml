@@ -34,40 +34,75 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Waktu Aktivitas -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Waktu"
-            android:layout_marginTop="16dp">
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTime"
-                android:layout_width="match_parent"
+            <!-- Input Waktu -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:focusable="false"
-                android:clickable="true"
-                android:inputType="time" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:hint="Waktu">
 
-        <!-- Tombol Pilih Waktu -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPickTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pilih Waktu"
-            android:layout_marginTop="8dp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="time" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Rekam Suara -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRecordVoice"
-            android:layout_width="wrap_content"
+            <!-- Tombol Pilih Waktu -->
+            <ImageView
+                android:id="@+id/btnPickTime"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_alarmadd"
+                android:layout_marginStart="10dp"
+                android:contentDescription="Pilih Waktu"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:icon="@android:drawable/ic_btn_speak_now"
-            android:text="Rekam Suara"
-            app:iconPadding="8dp"
-            app:iconGravity="textStart" />
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <!-- Rekam Suara -->
+                <ImageView
+                    android:id="@+id/btnRecordVoice"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_mic"
+                    app:iconPadding="8dp"
+                    app:iconGravity="textStart" />
+
+            </LinearLayout>
+            <!-- Tombol Hapus Rekaman -->
+                <ImageView
+                    android:id="@+id/btnDeleteRecording"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_trash"
+                    app:iconPadding="8dp"
+                    app:iconGravity="textStart"
+                    android:visibility="gone"/>
+            </LinearLayout>
 
         <!-- Indikator Rekaman -->
         <com.google.android.material.textview.MaterialTextView
@@ -84,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Simpan Aktivitas"
+            android:backgroundTint="@color/green1"
             android:layout_marginTop="32dp" />
 
     </LinearLayout>
