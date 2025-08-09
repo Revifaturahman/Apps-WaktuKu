@@ -30,7 +30,7 @@ setiap pengingat adalah jembatan menuju kemandirian."*
 ---
 
 ```
-com.example.waktuku/
+com.revifaturahman.waktuku/
 │
 ├── adapter/              # Adapter untuk RecyclerView atau komponen UI lain
 ├── data/
@@ -50,7 +50,7 @@ com.example.waktuku/
 ---
 
 ## 🛠️ Teknologi yang Digunakan
-- **Android (Java/Kotlin)**
+- **Android (Kotlin)**
 - **AlarmManager & BroadcastReceiver** untuk pemicu alarm
 - **MediaRecorder** untuk perekaman audio
 - **NotificationManager** untuk notifikasi
