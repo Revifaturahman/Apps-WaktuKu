@@ -5,8 +5,9 @@ Keunikan aplikasi ini adalah pengguna dapat merekam audio pengingat sendiri yang
 
 Aplikasi ini dibuat khusus dengan mempertimbangkan kebutuhan penyandang disabilitas, terutama autisme, agar mereka dapat mengetahui aktivitas harian mereka dengan jelas, yang jadwalnya dapat diatur oleh orang tua, pendamping, atau orang terdekat.
 
-"Setiap suara yang akrab dapat menjadi pelukan hangat,
-setiap pengingat adalah jembatan menuju kemandirian."
+> *"Setiap suara yang akrab dapat menjadi pelukan hangat,
+setiap pengingat adalah jembatan menuju kemandirian."*
+
 ---
 
 ## ✨ Fitur Utama
@@ -77,5 +78,28 @@ Aplikasi ini dikembangkan untuk:
 
 ---
 
+## 📥 Cara Menginstal APK (via Itch.io)
+
+Jika Anda tidak ingin membangun proyek secara manual, Anda dapat langsung mencoba aplikasi dengan mengunduh APK melalui halaman Itch.io berikut:
+
+🔗 **[Download APK WaktuKu via Itch.io](https://revifaturahman.itch.io/waktuku)**  
+
+### 📲 Langkah-langkah Instalasi:
+
+1. Buka link Itch.io di atas melalui browser HP atau PC.
+2. Klik tombol **Download** dan unduh file `WaktuKu.apk`.
+3. Jika mengunduh lewat PC, pindahkan file ke perangkat Android Anda.
+4. Di perangkat Android:
+   - Buka file `WaktuKu.apk`.
+   - Izinkan instalasi dari sumber tidak dikenal jika diminta.
+   - Ikuti proses instalasi hingga selesai.
+5. Jalankan aplikasi WaktuKu!
+
+
+---
 ## 📜 Lisensi
 Proyek ini bersifat **Open Source** di bawah lisensi [MIT License](LICENSE).
+
+## ✨ Penulis
+
+- **Revi Faturahman** – [GitHub](https://github.com/Revifaturahman)
